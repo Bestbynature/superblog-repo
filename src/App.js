@@ -1,5 +1,6 @@
 import './App.css';
 import About from './about';
+import Contact from './contact';
 import Home from './home';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <p>This is the APP component</p> 
       <Home />
       <About />
+      <Contact />
 
     </div>
   );
