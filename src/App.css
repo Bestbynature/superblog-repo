@@ -2,8 +2,20 @@
   color: blue
 }
 
-button {
+/* button {
   border: 2px solid green;
   padding: 5px;
   border-radius: 1em;
+} */
+
+#btn {
+  border: 2px solid green;
+  padding: 5px;
+  border-radius: 1em;
+}
+
+#btn:hover {
+  border: 3px dashed red;
+  background-color: black;
+  color: white;
 }
