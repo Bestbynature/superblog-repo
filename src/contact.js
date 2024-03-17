@@ -8,45 +8,48 @@ const Contact = () => {
 
   let name = "Sina";
 
+  
   const handleHover = () => {
     console.log("Mouse has entered");
   };
-
+  
   const handleLeave = () => {
     console.log("Mouse has left");
   };
-
+  
   const handleClick = () => {
     setSchool("Second School");
   };
-
+  
   const handleKey = (e) => {
-        if (e.key === "Enter") {
+    if (e.key === "Enter") {
       console.log(e.key);
     }
   };
-
+  
   const handleIncrease = () => {
-    if(count === 10) {
-      return;
+    // if(count === 10) {
+      //   return;
+      // }
+      setCount(count + 1)
     }
-    setCount(count + 1)
-  }
-
-  const handleDecrease = () => {
-    if(count !== 0) {
-      setCount(count - 1)
+    
+    const handleDecrease = () => {
+      if(count !== 0) {
+        setCount(count - 1)
+      }
     }
-  }
-
-  // ()=>{} Anonymous function or a callback function
-
-  // state
-  // react dev tools
-  // outputting list
-
-  return (
-    <div className="wrapper">
+    
+    // ()=>{} Anonymous function or a callback function
+    
+    // state
+    // react dev tools
+    // outputting list
+    const names = [ 'Sina', 'John', 'Doe', 'Jane', 'Doe' ]
+    const numbers = [ 1, 2, 3, 4, 5]
+    
+    return (
+      <div className="wrapper">
       This is the template for contact page
       <button
         id="btn"
@@ -60,6 +63,14 @@ const Contact = () => {
       <p>{value}</p>
       <p>{name}</p>
       <div className="school">{school}</div>
+      {names.map((name)=>(
+        <p>{name}</p>
+      ))}
+
+      {numbers.map((figure)=>(
+         <p>{figure + 5}</p>
+      ))}
+
       <p>{count}</p>
       <button onClick={handleIncrease}>Increase</button>
       <button onClick={handleDecrease}>Decrease</button>
