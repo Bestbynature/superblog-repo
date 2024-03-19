@@ -28,9 +28,9 @@ const Contact = () => {
   };
   
   const handleIncrease = () => {
-    // if(count === 10) {
-      //   return;
-      // }
+    if(count === 10) {
+        return;
+      }
       setCount(count + 1)
     }
     
@@ -39,17 +39,10 @@ const Contact = () => {
         setCount(count - 1)
       }
     }
-    
-    // ()=>{} Anonymous function or a callback function
-    
-    // state
-    // react dev tools
-    // outputting list
-    const names = [ 'Sina', 'John', 'Doe', 'Jane', 'Doe' ]
-    const numbers = [ 1, 2, 3, 4, 5]
-    
-    return (
-      <div className="wrapper">
+  }
+
+  return (
+    <div className="wrapper">
       This is the template for contact page
       <button
         id="btn"
