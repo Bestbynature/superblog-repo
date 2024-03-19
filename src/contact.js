@@ -39,12 +39,6 @@ const Contact = () => {
     }
   }
 
-  // ()=>{} Anonymous function or a callback function
-
-  // state
-  // react dev tools
-  // outputting list
-
   return (
     <div className="wrapper">
       This is the template for contact page
