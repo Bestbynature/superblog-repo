@@ -3,8 +3,6 @@ import BlogList from "./bloglist";
 
 const Home = () => {
 
-  // how to delete from an array
-
   const [blogs, setBlogs] = useState([
     {
       id: 1,
