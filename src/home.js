@@ -2,6 +2,8 @@ import { useState } from "react";
 import BlogList from "./bloglist";
 
 const Home = () => {
+  // how to reuse components
+  // how to delete from an array
 
   const [blogs, setBlogs] = useState([
     {
@@ -23,9 +25,18 @@ const Home = () => {
       author: "John",
     },
   ]);
-  return ( 
-    <BlogList blogs={blogs}/>
-   );
-}
- 
+
+  const handleDelete = (id) => {
+   const filteredBlogs = blogs.filter((blog)=> blog.id !== id) // true
+   setBlogs(filteredBlogs)
+  }
+
+  return (
+    <>
+      <BlogList blogs={blogs} title="All The Blogs" handleDelete={handleDelete} />
+      <BlogList blogs={blogs.filter((blog) => blog.title === "Covid19")} title="Covid19" />
+    </>
+  );
+};
+
 export default Home;
