@@ -2,7 +2,7 @@ import { useState } from "react";
 import BlogList from "./bloglist";
 
 const Home = () => {
-  // how to reuse components
+
   // how to delete from an array
 
   const [blogs, setBlogs] = useState([
