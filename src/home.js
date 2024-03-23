@@ -27,7 +27,7 @@ const Home = () => {
   ]);
 
   const handleDelete = (id) => {
-   const filteredBlogs = blogs.filter((blog)=> blog.id !== id) // true
+   const filteredBlogs = blogs.filter((blog)=> blog.id !== id)
    setBlogs(filteredBlogs)
   }
 
