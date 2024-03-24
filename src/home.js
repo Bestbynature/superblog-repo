@@ -1,38 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogList from "./bloglist";
 
 const Home = () => {
 
-  const [blogs, setBlogs] = useState([
-    {
-      id: 1,
-      title: "Covid19",
-      body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex sunt quia ipsum quidem blanditiis, voluptas explicabo fuga excepturi similique quam commodi, obcaecati omnis. Impedit ratione consequatur sapiente! Voluptates, aperiam illo!",
-      author: "Godfrey",
-    },
-    {
-      id: 2,
-      title: "Food Security",
-      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae reprehenderit voluptate praesentium ad excepturi placeat similique aspernatur libero est officia repellat quaerat quidem nulla enim sit quae, ipsum minima sed?",
-      author: "Oladimeji",
-    },
-    {
-      id: 3,
-      title: "Hygiene",
-      body: "This is the way I brus my teeth everyday",
-      author: "John",
-    },
-  ]);
+  const [blogs, setBlogs] = useState(null);
+  const [value, setValue] = useState(23)
 
-  const handleDelete = (id) => {
-   const filteredBlogs = blogs.filter((blog)=> blog.id !== id)
-   setBlogs(filteredBlogs)
-  }
-
+  useEffect(()=>{
+    console.log("use Effect is running now")
+    fetch("http://localhost:8000/blogs")
+    .then((res)=>{
+      return res.json()
+    })
+    .then((data)=>{
+      setBlogs(data)
+    })
+  }, []) 
+ 
   return (
     <>
-      <BlogList blogs={blogs} title="All The Blogs" handleDelete={handleDelete} />
-      <BlogList blogs={blogs.filter((blog) => blog.title === "Covid19")} title="Covid19" />
+      {blogs && <BlogList blogs={blogs} title="All The Blogs" />}
+      {blogs && <BlogList blogs={blogs.filter((blog) => blog.title === "Covid19")} title="Covid19" />}
+      {value}
     </>
   );
 };
