@@ -1,7 +1,7 @@
 import './App.css';
-import About from './about';
-import Contact from './contact';
-import Faq from './faq';
+// import About from './about';
+// import Contact from './contact';
+// import Faq from './faq';
 import Home from './home';
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
     <div> 
       <p>This is the APP component</p> 
       <Home />
-      <About />
-      <Contact />
-      <Faq />
+      {/* <About /> */}
+      {/* <Contact /> */}
+      {/* <Faq /> */}
 
     </div>
   );

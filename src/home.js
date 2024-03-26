@@ -4,29 +4,37 @@ import BlogList from "./bloglist";
 const Home = () => {
 
   const [blogs, setBlogs] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState("")
 
   useEffect(()=>{
-    console.log("use Effect is running now")
+    setTimeout(()=>{
     fetch("http://localhost:8000/blogs")
     .then((res)=>{
+      if(!res.ok){
+        throw Error("Could not fetch the given API")
+      }
       return res.json()
     })
     .then((data)=>{
       setBlogs(data)
+      setIsLoading(false)
+      setError("")
     })
-  }, []) 
+    .catch((err)=>{
+      setError(err.message)
+      setIsLoading(false)
+    })
+    }, 1000)
+  }, [])
 
  
   return (
     <>
+    {error && <p>{error}</p>}
+    {isLoading && <div>Loading your blogs ....</div>}
       {blogs && <BlogList blogs={blogs} title="All The Blogs" />}
-      {blogs && <BlogList blogs={blogs.filter((blog) => blog.title === "Covid19")} title="Covid19" />}
-      <ul>
-        <li>item one</li>
-        <li>item two</li>
-        <li>item three</li>
-        
-      </ul>
+      
     </>
   );
 };
